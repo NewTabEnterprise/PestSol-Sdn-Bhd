@@ -155,9 +155,9 @@
           <tbody id="tableBody">
             <tr class="itemRow">
               <td>
-                <select class="form-control font-xxs ddlItem" style="width: max-content;"></select>
+                <select class="form-control font-xxs ddlItem" style="width: 100%;"></select>
                 <label contenteditable="true" class="font-xxs mt-2 inputDescription"
-                  style="white-space: pre-line"></label>
+                  style="width: 100%;"></label>
               </td>
               <td contenteditable="true"
                 class="text-center font-xxs align-items-center justify-content-center quantityInput"></td>
@@ -245,8 +245,8 @@
   </div>
   <script id="init-script">
     $(document).ready(function () {
-      var companyLogoLink = "https://raw.githubusercontent.com/miloicekosong/pestsol/main/logo.png";
-      var bankinNoteLink = "https://raw.githubusercontent.com/miloicekosong/pestsol/main/qr-bank.png";
+      var companyLogoLink = "https://raw.githubusercontent.com/NewTabEnterprise/PestSol-Sdn-Bhd/main/src/img/logo.png";
+      var bankinNoteLink = "https://raw.githubusercontent.com/NewTabEnterprise/PestSol-Sdn-Bhd/main/src/img/qr-bank.png";
 
       var warrantyStartDate = moment().format('DD/MM/YYYY');
       var warrantyEndDate = moment().add(3, 'years').format('DD/MM/YYYY');
@@ -398,10 +398,10 @@
           `
     <tr class='itemRow'>
       <td>
-        <select class="form-control font-xs ddlItem" style="width: max-content;">
+        <select class="form-control font-xs ddlItem" style="width: 100%;">
           ${items}
         </select>
-        <label contenteditable="true" class="font-xxs mt-2 inputDescription" style="white-space: pre-line"></label>
+        <label contenteditable="true" class="font-xxs mt-2 inputDescription" style="width: 100%"></label>
       </td>
       <td contenteditable="true" class="text-center font-xxs align-items-center justify-content-center quantityInput">
       </td>
@@ -424,6 +424,9 @@
       function rebindItemRowEvents() {
         $('.itemRow .ddlItem').unbind().on('change', function () {
           calculateRow($(this).parent());
+          var inputDescription = $(this).parent().find(".inputDescription");
+          var selectedDescription = $(this).find(":selected").attr('description');
+          inputDescription.html(selectedDescription);
         });
         $('.itemRow .quantityInput').unbind().on('blur', function () {
           calculateRow($(this).parent());
@@ -439,7 +442,6 @@
         var selectedDescription = ddlItem.parent().find(":selected").attr('description');
 
         var rateInput = ddlItem.parent().parent().find('.rateInput');
-        var description = row.find('.inputDescription');
         var amountInput = ddlItem.parent().parent().find('.amountInput');
         var quantityInput = ddlItem.parent().parent().find('.quantityInput');
         var rate = parseInt(rateInput.text());
@@ -462,7 +464,6 @@
           amountInput.text(0);
           calculateTotalAmount();
         }
-        description.html(selectedDescription);
       }
 
       function getUrlParameters() {
@@ -497,8 +498,7 @@
 
         return result;
       }
-
-
+      
       calculateTotalAmount();
       function calculateTotalAmount() {
         var amount = 0;
@@ -584,7 +584,7 @@
   </script>
   <script>
     $(document).ready(function () {
-      const isTesting = true;
+      const isTesting = false;
       const nowDate = moment().format('YYYY-MM-DD');
       $('#signedDate').val(nowDate);
 
@@ -731,7 +731,6 @@
           });
         }
 
-
         setTimeout(() => {
           $(".circle").hide();
           $(".message-text").text("Quotation Submitted Successfully");
@@ -758,7 +757,7 @@
         });
         var index = 0;
         $('.ddlItem').each(function () {
-          $(this).replaceWith(`<span class='itemInput font-xxs' itemSKU='${selectedServices[index].itemSKU}'>${selectedServices[index].itemName}</span>`);
+          $(this).replaceWith(`<span class='itemInput font-xxs' itemSKU='${selectedServices[index].itemSKU}'>${selectedServices[index].itemName}</span><br>`);
           index = index + 1;
         });
 
@@ -868,7 +867,7 @@
         var docNumber = $("#docNumber").text();
         var docName = `Quotation ${docNumber}`;
         const options = {
-          filename: 'document.pdf',
+          filename: docName,
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: { scale: 2 },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
@@ -878,7 +877,7 @@
           var link = document.createElement('a');
           link.href = URL.createObjectURL(pdfBlob);
           console.log(link.href);
-          link.download = 'document.pdf';
+          link.download = docName;
           link.click();
         }).catch(error => {
           console.error("Error generating PDF:", error);
@@ -895,7 +894,8 @@
         var recordId = $("#recordId").val();
         var docNumber = $("#docNumber").text();
 
-        $.ajax({
+        if (!isTesting){
+          $.ajax({
           url: apiUrl,
           type: 'POST',
           data: JSON.stringify({
@@ -914,7 +914,8 @@
             console.error('Error sending HTML content:', error);
           }
         });
-
+        }
+        
         setTimeout(() => {
           $(".circle").hide();
           $(".message-text").text("Quotation Sent Successfully");
