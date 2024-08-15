@@ -15,307 +15,7 @@
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-
-  <style>
-    :root {
-      --primary-color: #F9A610;
-    }
-
-    body {
-      background-color: lightgray;
-      margin-top: 2%;
-      margin-bottom: 2%;
-      min-height: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .main-container {
-      padding: 3%;
-      width: 100%;
-      min-height: 1000px;
-      background-color: white;
-      box-shadow: 1px 1px 7px 2px rgba(122, 109, 109, 0.75);
-      -webkit-box-shadow: 1px 1px 7px 2px rgba(122, 109, 109, 0.75);
-      -moz-box-shadow: 1px 1px 7px 2px rgba(122, 109, 109, 0.75);
-      display: block;
-    }
-
-    .company-logo-container {
-      display: grid;
-    }
-
-    .company-logo {
-      justify-self: flex-end;
-    }
-
-    .no-margin {
-      margin: 0 !important;
-    }
-
-    .no-padding {
-      padding: 0 !important;
-    }
-
-    /* Base styles (Mobile first) */
-    .font-m {
-      font-family: 'Trebuchet MS', sans-serif;
-      font-size: 16px;
-    }
-
-    .font-s {
-      font-family: 'Trebuchet MS', sans-serif;
-      font-size: 14px;
-    }
-
-    .font-xs {
-      font-family: 'Trebuchet MS', sans-serif;
-      font-size: 12px;
-    }
-
-    .font-xxs {
-      font-family: 'Trebuchet MS', sans-serif;
-      font-size: 10px;
-    }
-
-    /* Tablet styles */
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
-      .font-m {
-        font-size: 18px;
-      }
-
-      .font-s {
-        font-size: 16px;
-      }
-
-      .font-xs {
-        font-size: 14px;
-      }
-
-      .font-xxs {
-        font-size: 12px;
-      }
-    }
-
-    /* PC styles */
-    @media screen and (min-width: 1024px) {
-      .font-m {
-        font-size: 20px;
-      }
-
-      .font-s {
-        font-size: 18px;
-      }
-
-      .font-xs {
-        font-size: 16px;
-      }
-
-      .font-xxs {
-        font-size: 14px;
-      }
-    }
-
-    .font-bold {
-      font-weight: bold;
-    }
-
-    .color-primary {
-      color: var(--primary-color) !important;
-    }
-
-
-    .signature-pad--body {
-      position: relative;
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      border: 1px solid #d9d9d9;
-      height: 150px;
-    }
-
-    .signature-pad--body canvas {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .datepicker {
-      border-radius: 0 !important;
-    }
-
-    .loader-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.8);
-      /* Semi-transparent background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      /* Ensure it covers all other elements */
-    }
-
-    .circle {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: var(--primary-color);
-      left: 15%;
-      transform-origin: 50%;
-      margin-left: 10px;
-      animation: circle7124 .5s alternate infinite ease;
-    }
-
-    @keyframes circle7124 {
-      0% {
-        top: 60px;
-        height: 5px;
-        border-radius: 50px 50px 25px 25px;
-        transform: scaleX(1.7);
-      }
-
-      40% {
-        height: 20px;
-        border-radius: 50%;
-        transform: scaleX(1);
-      }
-
-      100% {
-        top: 0%;
-      }
-    }
-
-    .circle:nth-child(2) {
-      left: 45%;
-      animation-delay: .2s;
-    }
-
-    .circle:nth-child(3) {
-      left: auto;
-      right: 15%;
-      animation-delay: .3s;
-    }
-
-    .card {
-      width: 330px;
-      height: 80px;
-      border-radius: 8px;
-      box-sizing: border-box;
-      padding: 10px 15px;
-      background-color: #ffffff;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      gap: 15px;
-    }
-
-    .wave {
-      position: absolute;
-      transform: rotate(90deg);
-      left: -31px;
-      top: 32px;
-      width: 80px;
-      fill: var(--primary-color);
-    }
-
-    .icon-container {
-      width: 35px;
-      height: 35px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--primary-color);
-      border-radius: 50%;
-      margin-left: 8px;
-    }
-
-    .icon {
-      width: 17px;
-      height: 17px;
-      color: #269b24;
-    }
-
-    .message-text-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      flex-grow: 1;
-    }
-
-    .message-text,
-    .sub-text {
-      margin: 0;
-      cursor: default;
-    }
-
-    .message-text {
-      color: var(--primary-color);
-      font-size: 17px;
-      font-weight: 700;
-    }
-
-    .sub-text {
-      font-size: 14px;
-      color: #555;
-    }
-
-    .cross-icon {
-      width: 18px;
-      height: 18px;
-      color: #555;
-      cursor: pointer;
-    }
-
-    .no-page-break {
-      page-break-inside: avoid;
-    }
-
-    .page-break {
-      page-break-before: always;
-    }
-
-    @media print {
-      .page-break {
-        page-break-before: always;
-      }
-
-      .no-page-break {
-        page-break-inside: avoid;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .table-responsive {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-    }
-
-    table {
-      border-collapse: collapse !important;
-    }
-
-    table td,
-    table th {
-      border: 1px solid #dee2e6 !important;
-      padding: 0.5rem !important;
-    }
-  </style>
+  <link rel="stylesheet" href="src/css/main.css">
 </head>
 
 <body>
@@ -545,29 +245,20 @@
   </div>
   <script id="init-script">
     $(document).ready(function () {
-      var picName = getUrlParameter('picName');
-      var picContact = getUrlParameter('picContact');
-      var picEmail = getUrlParameter('picEmail');
       var companyLogoLink = "https://raw.githubusercontent.com/miloicekosong/pestsol/main/logo.png";
       var bankinNoteLink = "https://raw.githubusercontent.com/miloicekosong/pestsol/main/qr-bank.png";
 
-      var companyName = getUrlParameter('companyName');
-      var companyContact = getUrlParameter('companyContact');
-      var companyEmail = getUrlParameter('companyEmail');
-      var billingEmail = getUrlParameter('billingEmail');
-      var billingBuilding = getUrlParameter('billingBuilding');
-      var billingUnit = getUrlParameter('billingUnit');
-      var billingAddr1 = getUrlParameter('billingAddr1');
-      var billingAddr2 = getUrlParameter('billingAddr2');
-      var billingPostalCode = getUrlParameter('billingPostalCode');
-      var billingCity = getUrlParameter('billingCity');
-      var billingState = getUrlParameter('billingState');
       var warrantyStartDate = moment().format('DD/MM/YYYY');
       var warrantyEndDate = moment().add(3, 'years').format('DD/MM/YYYY');
 
-      var docNumber = getUrlParameter('docNumber');
-      var recordId = getUrlParameter('recordId');
-      var docDate = moment(parseInt(getUrlParameter('date'))).format('DD-MM-YYYY');
+      var param = getUrlParameters();
+      var picName = param.picName;
+      var picContact = param.picContact;
+      var picEmail = param.picEmail;
+
+      var companyContact = param.companyContact;
+      var companyName = param.companyName;
+      var companyEmail = param.companyEmail;
 
       var termiteDescription = `Service Include:<br>1. AG (Above Ground) Baiting System, cover area under premise<br>2.
     Fortnightly visitation to change/check baiting until termite eliminate<br>3. Fortnightly visitation will be continue
@@ -643,26 +334,25 @@
       var inputDiscountOption = $("#inputDiscountOption");
       var inputTotalAmount = $("#inputTotalAmount");
 
-      $("#picName").text(picName);
-      $("#picContact").text(picContact);
-      $("#picEmail").text(picEmail);
+      $("#picName").text(param.picName);
+      $("#picContact").text(param.picContact);
+      $("#picEmail").text(param.picEmail);
 
-      $("#companyName").text(companyName);
-      $("#companyContact").text(companyContact);
-      $("#companyEmail").text(companyEmail);
-      $("#billingBuilding").text(billingBuilding);
-      $("#billingAddr1").text(`${billingUnit}, ${billingAddr1},`);
-      $("#billingAddr2").text(`${billingAddr2},`);
-      $("#billingAddr3").text(`${billingPostalCode}, ${billingCity}, ${billingState}`);
+      $("#companyName").text(param.companyName);
+      $("#companyContact").text(param.companyContact);
+      $("#companyEmail").text(param.companyEmail);
+      $("#billingBuilding").text(param.billingBuilding);
+      $("#billingAddr1").text(`${param.billingUnit}, ${param.billingAddr1},`);
+      $("#billingAddr2").text(`${param.billingAddr2},`);
+      $("#billingAddr3").text(`${param.billingPostalCode}, ${param.billingCity}, ${param.billingState}`);
 
-      $("#docNumber").text(docNumber);
-      $("#docDate").text(docDate);
-      $("#recordId").val(recordId);
+      $("#docNumber").text(param.docNumber);
+      $("#docDate").text(moment(parseInt(param.date)).format('DD-MM-YYYY'));
+      $("#recordId").val(param.recordId);
       $("#company-logo").attr("src", companyLogoLink);
       $("#bankinNote").attr("src", bankinNoteLink);
 
-      formatAddress(billingBuilding, billingUnit, billingAddr1, billingAddr2, billingPostalCode, billingCity,
-        billingState);
+      formatAddress();
 
       $("img").each(async function () {
         var imageLink = $(this).attr('src');
@@ -775,10 +465,39 @@
         description.html(selectedDescription);
       }
 
-      function getUrlParameter(paramName) {
-        var searchParams = new URLSearchParams(window.location.search);
-        return searchParams.get(paramName);
+      function getUrlParameters() {
+        var query = window.location.search.substring(1);
+        var result = {};
+        var params = query.split('&');
+        var regex = /([^=]+)=(.*)/;
+
+        for (var i = 0; i < params.length; i++) {
+          var match = params[i].match(regex);
+          if (match) {
+            var key = decodeURIComponent(match[1]);
+            var value = decodeURIComponent(match[2] || '');
+
+            // Check if the next parameter doesn't have an '=' sign
+            while (i + 1 < params.length && !params[i + 1].includes('=')) {
+              i++;
+              value += '&' + decodeURIComponent(params[i]);
+            }
+
+            if (result[key] !== undefined) {
+              if (Array.isArray(result[key])) {
+                result[key].push(value);
+              } else {
+                result[key] = [result[key], value];
+              }
+            } else {
+              result[key] = value;
+            }
+          }
+        }
+
+        return result;
       }
+
 
       calculateTotalAmount();
       function calculateTotalAmount() {
@@ -840,25 +559,24 @@
           });
       }
 
-      function formatAddress(billingBuilding, billingUnit, billingAddr1, billingAddr2, billingPostalCode, billingCity,
-        billingState) {
+      function formatAddress() {
         var formattedAddress = '';
-        if (billingBuilding) {
-          formattedAddress += billingBuilding + '<br>';
+        if (param.billingBuilding) {
+          formattedAddress += param.billingBuilding + '<br>';
         }
-        if (billingUnit) {
-          formattedAddress += billingUnit;
+        if (param.billingUnit) {
+          formattedAddress += param.billingUnit;
         }
-        if (billingAddr1) {
-          formattedAddress += (billingUnit ? ', ' : '') + billingAddr1 + ', ';
+        if (param.billingAddr1) {
+          formattedAddress += (param.billingUnit ? ', ' : '') + param.billingAddr1 + ', ';
         }
-        if (billingAddr2) {
-          formattedAddress += billingAddr2 + ', ';
+        if (param.billingAddr2) {
+          formattedAddress += param.billingAddr2 + ', ';
         }
-        if (billingPostalCode || billingCity || billingState) {
-          formattedAddress += (billingPostalCode ? billingPostalCode + ' ' : '') +
-            (billingCity ? billingCity + ', ' : '') +
-            (billingState ? billingState : '');
+        if (param.billingPostalCode || param.billingCity || param.billingState) {
+          formattedAddress += (param.billingPostalCode ? param.billingPostalCode + ' ' : '') +
+            (param.billingCity ? param.billingCity + ', ' : '') +
+            (param.billingState ? param.billingState : '');
         }
         $("#billingAddress").html(formattedAddress);
       }
@@ -866,6 +584,7 @@
   </script>
   <script>
     $(document).ready(function () {
+      const isTesting = true;
       const nowDate = moment().format('YYYY-MM-DD');
       $('#signedDate').val(nowDate);
 
@@ -996,18 +715,22 @@
           picEmail: picEmail,
           companyEmail: companyEmail
         };
-        $.ajax({
-          url: url,
-          type: 'POST',
-          data: JSON.stringify(requestBody),
-          contentType: 'multipart/form-data',
-          success: function (response) {
-            console.log('Success:', response);
-          },
-          error: function (xhr, status, error) {
-            console.error('Error:', error);
-          }
-        });
+
+        if (!isTesting) {
+          $.ajax({
+            url: url,
+            type: 'POST',
+            data: JSON.stringify(requestBody),
+            contentType: 'multipart/form-data',
+            success: function (response) {
+              console.log('Success:', response);
+            },
+            error: function (xhr, status, error) {
+              console.error('Error:', error);
+            }
+          });
+        }
+
 
         setTimeout(() => {
           $(".circle").hide();
