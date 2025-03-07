@@ -1033,8 +1033,9 @@
                 for (var i = 0; i < 5; i++) 
 		{
                   if (i < rating) 
-			  ratingContainer.prepend("< label class = 'reviewed-star' > ★ < /label>"); 
-		  else ratingContainer.prepend("< label class = 'unreviewed-star' > ★ < /label>"); 
+			  ratingContainer.prepend("<label class ='reviewed-star'>★</label>"); 
+		  else 
+			  ratingContainer.prepend("<label class ='unreviewed-star'>★</label>"); 
 		} 
 		$("canvas").remove();
 		var styleElement = document.createElement('style');
