@@ -830,13 +830,29 @@
 
             function formatAddress(billingBuilding, billingUnit, billingAddr1, billingAddr2, billingPostalCode, billingCity, billingState) {
               var formattedAddress = '';
-              if (billingBuilding) {
-                formattedAddress += billingBuilding + ' < br > '; } if (billingUnit) { formattedAddress += billingUnit; } if (billingAddr1) { formattedAddress += (billingUnit ? ', ' : '
-                ') + billingAddr1 + ', '; } if (billingAddr2) { formattedAddress += billingAddr2 + ', '; } if (billingPostalCode || billingCity || billingState) { formattedAddress += (billingPostalCode ? billingPostalCode + '
-                ' : '
-                ') + (billingCity ? billingCity + ', ' : '
-                ') + (billingState ? billingState : '
-                '); } $("#billingAddress").html(formattedAddress); } }) 
+              if (billingBuilding) 
+	      {
+                formattedAddress += billingBuilding + ' < br > '; 
+	      } 
+	      if (billingUnit) 
+	      { 
+		formattedAddress += billingUnit; 
+	      } 
+	      if (billingAddr1) 
+	      { 
+		formattedAddress += (billingUnit ? ', ' : '') + billingAddr1 + ', '; 
+	      } 
+	      if (billingAddr2) 
+	      { 
+		formattedAddress += billingAddr2 + ', '; 
+	      } 
+	      if (billingPostalCode || billingCity || billingState) 
+	      { 
+		formattedAddress += (billingPostalCode ? billingPostalCode + '' : '') 
+			+ (billingCity ? billingCity + ', ' : '') 
+			+ (billingState ? billingState : ''); 
+	      } 
+	      $("#billingAddress").html(formattedAddress); } }) 
     </script>
     <script>
       $(document).ready(function() {
@@ -909,14 +925,12 @@
               });
               var index = 0;
               $('.ddlItem').each(function() {
-                $(this).replaceWith(`
-																													<span class='itemInput' skunumber='${selectedServices[index].itemSKU}'>${selectedServices[index].itemName}</span>`);
+                $(this).replaceWith(`<span class='itemInput' skunumber='${selectedServices[index].itemSKU}'>${selectedServices[index].itemName}</span>`);
                 index = index + 1;
               });
               index = 0;
               $('.ddlTradeName').each(function() {
-                $(this).replaceWith(`
-																													<span class='tradeNameInput' itemSKU='${selectedTradeNames[index].itemSKU}'>${selectedTradeNames[index].itemName}</span>`);
+                $(this).replaceWith(`<span class='tradeNameInput' itemSKU='${selectedTradeNames[index].itemSKU}'>${selectedTradeNames[index].itemName}</span>`);
                 index = index + 1;
               });
               $("input").each(function() {
@@ -1016,9 +1030,64 @@
                 var ratingContainer = $("div.rating");
                 var rating = $("#rating").val();
                 ratingContainer.html("");
-                for (var i = 0; i < 5; i++) {
-                  if (i < rating) ratingContainer.prepend("  < label class = 'reviewed-star' > ★ < /label>"); else ratingContainer.prepend(" < label class = 'unreviewed-star' > ★ < /label>"); } $("canvas").remove(); var styleElement = document.createElement('style'); var clonedDoc = document.cloneNode(true); $(clonedDoc).find('head').append(styleElement); var modifiedHTML = clonedDoc.documentElement.outerHTML; modifiedHTML = modifiedHTML.replace(/initSigningPad\(\);
-                      /g, ''); return modifiedHTML; } async function convertToPDF(htmlContent) { var docNumber = $("#docNumber").text(); var docName = `Service Report ${docNumber}`; const options = { filename: docName, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }; html2pdf().from(htmlContent).set(options).toPdf().output('blob').then(function (pdfBlob) { var link = document.createElement('a'); link.href = URL.createObjectURL(pdfBlob); console.log(link.href); link.download = docName; link.click(); }).catch(error => { console.error("Error generating PDF:", error); btnDownloadPdf.show(); }); } function convertTimeToTimestamp(timeInput) { const today = moment(); const time = moment(timeInput, 'HH:mm'); const combined = today.set({ hour: time.get('hour'), minute: time.get('minute'), second: 0, millisecond: 0 }); return combined.valueOf(); }; initSigningPad(); function initSigningPad() { var wrapper = document.getElementById("signature-pad"); var canvas = wrapper.querySelector("canvas"); var clearButton = document.getElementById("btnClearSignature"); const ratio = Math.max(window.devicePixelRatio || 1, 1); canvas.width = canvas.offsetWidth * ratio; canvas.height = canvas.offsetHeight * ratio; canvas.getContext("2d").scale(ratio, ratio); signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgb(255, 255, 255)' }); clearButton.addEventListener("click", function (event) { signaturePad.clear(); }); $("#signature-pad").hide(); } }); 
+                for (var i = 0; i < 5; i++) 
+		{
+                  if (i < rating) 
+			  ratingContainer.prepend("< label class = 'reviewed-star' > ★ < /label>"); 
+		  else ratingContainer.prepend("< label class = 'unreviewed-star' > ★ < /label>"); 
+		} 
+		$("canvas").remove();
+		var styleElement = document.createElement('style');
+		var clonedDoc = document.cloneNode(true);
+		$(clonedDoc).find('head').append(styleElement);
+		var modifiedHTML = clonedDoc.documentElement.outerHTML;
+		modifiedHTML = modifiedHTML.replace(/initSigningPad\(\);/g, '');
+		return modifiedHTML; 
+	    } 
+	    async function convertToPDF(htmlContent) { 
+	    	var docNumber = $("#docNumber").text();
+		var docName = `Service Report ${docNumber}`;
+		const options = 
+		{ 
+			filename: docName, 
+			image: { type: 'jpeg', quality: 0.98 },
+			html2canvas: { scale: 2 },
+			jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+		}; 
+		html2pdf().from(htmlContent).set(options).toPdf().output('blob').then(function (pdfBlob) { 
+			var link = document.createElement('a');
+			link.href = URL.createObjectURL(pdfBlob);
+			console.log(link.href);
+			link.download = docName; link.click(); 
+		}).catch(error => {
+			console.error("Error generating PDF:", error);
+			btnDownloadPdf.show(); 
+		}); 
+	    } 
+	    function convertTimeToTimestamp(timeInput) 
+	    {
+		    const today = moment();
+		    const time = moment(timeInput, 'HH:mm');
+		    const combined = today.set({ hour: time.get('hour'), minute: time.get('minute'), second: 0, millisecond: 0 });
+		    return combined.valueOf(); 
+	    }; 
+	    initSigningPad();
+	    function initSigningPad() 
+	    { 
+		    var wrapper = document.getElementById("signature-pad");
+		    var canvas = wrapper.querySelector("canvas");
+		    var clearButton = document.getElementById("btnClearSignature");
+		    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+		    canvas.width = canvas.offsetWidth * ratio;
+		    canvas.height = canvas.offsetHeight * ratio;
+		    canvas.getContext("2d").scale(ratio, ratio);
+		    signaturePad = new SignaturePad(canvas, { backgroundColor: 'rgb(255, 255, 255)' });
+		    clearButton.addEventListener("click", function (event) { 
+			    signaturePad.clear(); 
+		    }); 
+		    $("#signature-pad").hide(); 
+	    } 
+      }); 
     </script>
   </body>
 </html>
