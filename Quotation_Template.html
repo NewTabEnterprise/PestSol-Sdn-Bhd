@@ -742,19 +742,27 @@
         };
 
         if (!isTesting) {
-          $.ajax({
-            url: url,
-            type: 'POST',
-            mode: 'no-cors',
-            data: JSON.stringify(requestBody),
-            contentType: 'multipart/form-data',
-            success: function (response) {
-              console.log('Success:', response);
-            },
-            error: function (xhr, status, error) {
-              console.error('Error:', error);
-            }
+          fetch(url, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(requestBody)
           });
+          // $.ajax({
+          //   url: url,
+          //   type: 'POST',
+          //   mode: 'no-cors',
+          //   data: JSON.stringify(requestBody),
+          //   contentType: 'multipart/form-data',
+          //   success: function (response) {
+          //     console.log('Success:', response);
+          //   },
+          //   error: function (xhr, status, error) {
+          //     console.error('Error:', error);
+          //   }
+          // });
         }
 
         setTimeout(() => {
