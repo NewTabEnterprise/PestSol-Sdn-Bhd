@@ -745,6 +745,7 @@
           $.ajax({
             url: url,
             type: 'POST',
+            mode: 'no-cors',
             data: JSON.stringify(requestBody),
             contentType: 'multipart/form-data',
             success: function (response) {
@@ -923,6 +924,7 @@
           $.ajax({
           url: apiUrl,
           type: 'POST',
+          mode: 'no-cors',
           data: JSON.stringify({
             html: htmlContent,
             picEmail: picEmail,
