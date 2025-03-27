@@ -970,7 +970,9 @@
               if (isNaN(rating)) {
                 rating = 0;
               }
-              var url = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTY0MDYzNDA0MzY1MjZjNTUzNDUxMzYi_pc';
+              // var url = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTY0MDYzNDA0MzY1MjZjNTUzNDUxMzYi_pc';
+              var url = 'https://open-sg.larksuite.com/anycross/trigger/callback/YTM2MTc0Y2YzMGRjMmJiMTMwZjliYTE5MWYwNTNkYWQw';
+		    
               var requestBody = {
                 services: services,
                 startTime: startDateTime,
@@ -989,19 +991,27 @@
                 companyEmail: companyEmail,
                 htmlContent: modifiedHTML,
               };
-              $.ajax({
-                url: url,
-                type: 'POST',
-		mode: 'no-cors',
-                data: JSON.stringify(requestBody),
-                contentType: 'multipart/form-data',
-                success: function(response) {
-                  console.log('Success: ', response);
-                },
-                error: function(xhr, status, error) {
-                  console.error('Error: ', error);
-                }
-              });
+	      fetch(url, {
+	      	method: 'POST',
+	      	mode: 'no-cors',
+	      	headers: {
+		  'Content-Type': 'application/json'
+	      	},
+	      	body: JSON.stringify(requestBody)
+	      });
+  //             $.ajax({
+  //               url: url,
+  //               type: 'POST',
+		// mode: 'no-cors',
+  //               data: JSON.stringify(requestBody),
+  //               contentType: 'multipart/form-data',
+  //               success: function(response) {
+  //                 console.log('Success: ', response);
+  //               },
+  //               error: function(xhr, status, error) {
+  //                 console.error('Error: ', error);
+  //               }
+  //             });
               setTimeout(() => {
                 $(".circle").hide();
                 $(".message-text").text("Report Submitted Successfully");
