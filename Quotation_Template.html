@@ -260,36 +260,15 @@
       var companyName = param.companyName;
       var companyEmail = param.companyEmail;
 
-      var termiteDescription = `Service Include:<br>1. AG (Above Ground) Baiting System, cover area under premise<br>2.
-    Fortnightly visitation to change/check baiting until termite eliminate<br>3. Fortnightly visitation will be continue
-    if termite infestation again within the warranty period<br>4. E - Certificate for recognize of Termite Control
-    Service<br>Warranty Period:${warrantyStartDate} - ${warrantyEndDate}<br>Target Pest:<br>Termite`;
-      var correctiveSoilDescription = `Service Include:<br>1. Drilling along the premises perimeter, 2 feet distance
-    within the hole, 2 feet depth into soil<br>2. Termite chemical injection into soil<br>3. Termite baiting will be
-    apply if termite infestation within warranty<br>4. E - Certificate for recognize of Termite Control
-    Service<br>Warranty Period:<br>${warrantyStartDate} - ${warrantyEndDate}<br>Target Pest:<br>Termite`;
+      var termiteDescription = `Service Include:<br>1. AG (Above Ground) Baiting System, cover area under premise<br>2. Fortnightly visitation to change/check baiting until termite eliminate<br>3. Fortnightly visitation will be continue if termite infestation again within the warranty period<br>4. E - Certificate for recognize of Termite Control Service<br>Warranty Period:${warrantyStartDate} - ${warrantyEndDate}<br>Target Pest:<br>Termite`;
+      var correctiveSoilDescription = `Service Include:<br>1. Drilling along the premises perimeter, 2 feet distance within the hole, 2 feet depth into soil<br>2. Termite chemical injection into soil<br>3. Termite baiting will be apply if termite infestation within warranty<br>4. E - Certificate for recognize of Termite Control Service<br>Warranty Period:<br>${warrantyStartDate} - ${warrantyEndDate}<br>Target Pest:<br>Termite`;
       var termiteSpray = `Service Include:<br>1. Chemical spray along the premises perimeter<br>Target Pest:<br>Termite`;
-      var generalPestControlDescription = `Service Include:<br>1. Chemical spray along the premises perimeter<br>2.
-    Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>Warranty Period:
-    ${warrantyStartDate} - ${warrantyEndDate}<br>Target Pest:<br>Cockroach<br>Ant<br>Rodent<br>Other Crawling Bugs`;
-      var generalPestControlMonthlyDescription = `Service Include:<br>1. Chemical spray along the premises perimeter<br>2.
-    Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>
-    Target Pest:<br>Cockroach<br>Ant<br>Rodent<br>Other Crawling Bugs`;
-      var bedBugsDescription = `Service Include:<br>1. Chemical misting along the premises perimeter<br>2. 3 Services
-    every 3 days<br>Target Pest:<br>Bedbugs`;
-      var generalPestControlMistingDescription = `Service Include:<br>1. Chemical spray and misting along the premises
-    perimeter<br>2. Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>Warranty Period:
-    ${warrantyStartDate} - ${warrantyEndDate}<br>Target
-    Pest:<br>Bedbugs<br>Cockroach<br>Ant<br>Rodent<br>Spider<br>Flies<br>Mosquito<br>Other Flying Bugs<br>Other Crawling
-    Bugs`; 
-      var generalPestControlMistingMonthlyDescription = `Service Include:<br>1. Chemical spray and misting along the premises
-    perimeter<br>2. Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>Target
-    Pest:<br>Bedbugs<br>Cockroach<br>Ant<br>Rodent<br>Spider<br>Flies<br>Mosquito<br>Other Flying Bugs<br>Other Crawling
-    Bugs`;
-      var mistingDescription = `Service Include:<br>1. Chemical misting along the premises perimeter<br>2. Cockroach
-    Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>Warranty Period: ${warrantyStartDate} -
-    ${warrantyEndDate}<br>Target Pest:<br>Bedbugs<br>Cockroach<br>Ant<br>Rodent<br>Spider<br>Flies<br>Mosquito<br>Other
-    flying bugs"`;
+      var generalPestControlDescription = `Service Include:<br>1. Chemical spray along the premises perimeter<br>2. Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>Warranty Period: ${warrantyStartDate} - ${warrantyEndDate}<br>Target Pest:<br>Cockroach<br>Ant<br>Rodent<br>Other Crawling Bugs`;
+      var generalPestControlMonthlyDescription = `Service Include:<br>1. Chemical spray along the premises perimeter<br>2. Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br> Target Pest:<br>Cockroach<br>Ant<br>Rodent<br>Other Crawling Bugs`;
+      var bedBugsDescription = `Service Include:<br>1. Chemical misting along the premises perimeter<br>2. 3 Services every 3 days<br>Target Pest:<br>Bedbugs`;
+      var generalPestControlMistingDescription = `Service Include:<br>1. Chemical spray and misting along the premises perimeter<br>2. Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>Warranty Period: ${warrantyStartDate} - ${warrantyEndDate}<br>Target Pest:<br>Bedbugs<br>Cockroach<br>Ant<br>Rodent<br>Spider<br>Flies<br>Mosquito<br>Other Flying Bugs<br>Other Crawling Bugs`; 
+      var generalPestControlMistingMonthlyDescription = `Service Include:<br>1. Chemical spray and misting along the premises perimeter<br>2. Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>Target Pest:<br>Bedbugs<br>Cockroach<br>Ant<br>Rodent<br>Spider<br>Flies<br>Mosquito<br>Other Flying Bugs<br>Other Crawling Bugs`;
+      var mistingDescription = `Service Include:<br>1. Chemical misting along the premises perimeter<br>2. Cockroach Baiting<br>3. Rodent Baiting<br>4. Rodent Glue Board<br>5. Ant Baiting<br>Warranty Period: ${warrantyStartDate} - ${warrantyEndDate}<br>Target Pest:<br>Bedbugs<br>Cockroach<br>Ant<br>Rodent<br>Spider<br>Flies<br>Mosquito<br>Other flying bugs"`;
 
       var items = `<option value="P001" rate="" description="">Insert Trap - Decor 30</option>
     <option value="P002" rate="80" description="">Glue Board - 10 PCS</option>
@@ -311,41 +290,25 @@
     <option value="S00017" rate="1500" description='${termiteDescription}'>[contract] Termite Baiting - 2Y</option>
     <option value="S00001" rate="1800" description='${termiteDescription}'>[contract] Termite Baiting - 3Y</option>
     <option value="S00002" rate="3000" description='${termiteDescription}'>[contract] Termite Baiting - 5Y</option>
-    <option value="S00003" rate="2500" description='${correctiveSoilDescription}'>[contract] Corrective Soil Treatment -
-      5Y</option>
+    <option value="S00003" rate="2500" description='${correctiveSoilDescription}'>[contract] Corrective Soil Treatment - 5Y</option>
     <option value="S00004" rate="600" description='${termiteSpray}'>Termite Spray</option>
     <option value="S00005" rate="700" description='${bedBugsDescription}'>Bedbugs</option>
-    <option value="S00006" rate="1800" description='${generalPestControlDescription}'>[contract] General Pest Control -
-      1Y12J</option>
-    <option value="S00007" rate="1020" description='${generalPestControlDescription}'>[contract] General Pest Control -
-      1Y6J</option>
-    <option value="S00022" rate="0" description='${generalPestControlMonthlyDescription}'>General Pest Control -
-      1 month 2 jobs</option>
-    <option value="S00023" rate="0" description='${generalPestControlMonthlyDescription}'>General Pest Control -
-      1 month 3 jobs</option>
-    <option value="S00024" rate="0" description='${generalPestControlMonthlyDescription}'>General Pest Control -
-      1 month 4 jobs</option>
-    <option value="S00008" rate="760" description='${generalPestControlDescription}'>[contract] General Pest Control -
-      1Y4J</option>
-    <option value="S00009" rate="630" description='${generalPestControlDescription}'>[contract] General Pest Control -
-      1Y3J</option>
+    <option value="S00006" rate="1800" description='${generalPestControlDescription}'>[contract] General Pest Control - 1Y12J</option>
+    <option value="S00007" rate="1020" description='${generalPestControlDescription}'>[contract] General Pest Control - 1Y6J</option>
+    <option value="S00022" rate="0" description='${generalPestControlMonthlyDescription}'>General Pest Control - 1 month 2 jobs</option>
+    <option value="S00023" rate="0" description='${generalPestControlMonthlyDescription}'>General Pest Control - 1 month 3 jobs</option>
+    <option value="S00024" rate="0" description='${generalPestControlMonthlyDescription}'>General Pest Control - 1 month 4 jobs</option>
+    <option value="S00008" rate="760" description='${generalPestControlDescription}'>[contract] General Pest Control - 1Y4J</option>
+    <option value="S00009" rate="630" description='${generalPestControlDescription}'>[contract] General Pest Control - 1Y3J</option>
     <option value="S00010" rate="250" description='${generalPestControlDescription}'>General Pest Control</option>
-    <option value="S00025" rate="0" description='${generalPestControlMistingMonthlyDescription}'>General Pest
-      Control & Misting - 1 month 2 jobs</option>
-    <option value="S00026" rate="0" description='${generalPestControlMistingMonthlyDescription}'>General Pest
-      Control & Misting - 1 month 3 jobs</option>
-    <option value="S00027" rate="0" description='${generalPestControlMistingMonthlyDescription}'>General Pest
-      Control & Misting - 1 month 4 jobs</option>
-    <option value="S00011" rate="3000" description='${generalPestControlMistingDescription}'>[contract] General Pest
-      Control & Misting - 1Y12J</option>
-    <option value="S00012" rate="1740" description='${generalPestControlMistingDescription}'>[contract] General Pest
-      Control & Misting - 1Y6J</option>
-    <option value="S00013" rate="1320" description='${generalPestControlMistingDescription}'>[contract] General Pest
-      Control & Misting - 1Y4J</option>
-    <option value="S00014" rate="1110" description='${generalPestControlMistingDescription}'>[contract] General Pest
-      Control & Misting - 1Y3J</option>
-    <option value="S00015" rate="400" description='${generalPestControlMistingDescription}'>General Pest Control &
-      Misting</option>
+    <option value="S00025" rate="0" description='${generalPestControlMistingMonthlyDescription}'>General Pest Control & Misting - 1 month 2 jobs</option>
+    <option value="S00026" rate="0" description='${generalPestControlMistingMonthlyDescription}'>General Pest Control & Misting - 1 month 3 jobs</option>
+    <option value="S00027" rate="0" description='${generalPestControlMistingMonthlyDescription}'>General Pest Control & Misting - 1 month 4 jobs</option>
+    <option value="S00011" rate="3000" description='${generalPestControlMistingDescription}'>[contract] General Pest Control & Misting - 1Y12J</option>
+    <option value="S00012" rate="1740" description='${generalPestControlMistingDescription}'>[contract] General Pest Control & Misting - 1Y6J</option>
+    <option value="S00013" rate="1320" description='${generalPestControlMistingDescription}'>[contract] General Pest Control & Misting - 1Y4J</option>
+    <option value="S00014" rate="1110" description='${generalPestControlMistingDescription}'>[contract] General Pest Control & Misting - 1Y3J</option>
+    <option value="S00015" rate="400" description='${generalPestControlMistingDescription}'>General Pest Control & Misting</option>
     <option value="S00016" rate="300" description=''>Misting</option>
     <option value="S00018" rate="240" description="">Larvicide 1M 3 J</option>
     <option value="S00019" rate="750" description="">Mosquito Misting 1M 3J</option>
