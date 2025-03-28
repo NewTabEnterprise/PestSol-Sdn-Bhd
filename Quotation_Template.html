@@ -716,6 +716,7 @@
           services.push({
             item: $(this).find(".itemInput").attr('itemSKU'),
             itemName: $(this).find('.itemInput').text(),
+            itemDescription: $(this).find('.inputDescription').text(),
             quantity: parseFloat($(this).find(".quantityInput").text().replace(/,/g, '')),
             rate: parseFloat($(this).find('.rateInput').text().replace(/,/g, '')),
             amount: parseFloat($(this).find('.amountInput').text().replace(/,/g, '')),
