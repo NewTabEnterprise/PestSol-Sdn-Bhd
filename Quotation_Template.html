@@ -659,6 +659,7 @@
 
       function submitQuotation(modifiedHTML) {
         var services = [];
+        var signby = $("#signby").text();
         var totalDiscountAmount = 0;
         var discountPercentage = 0;
         var discountValue = 0;
@@ -703,7 +704,8 @@
           htmlContent: modifiedHTML,
           picName: picName,
           picEmail: picEmail,
-          companyEmail: companyEmail
+          companyEmail: companyEmail,
+          signBy : signby
         };
 
         if (!isTesting) {
