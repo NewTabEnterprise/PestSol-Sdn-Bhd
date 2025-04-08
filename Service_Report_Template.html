@@ -662,68 +662,71 @@
             var jobId = getUrlParameter('jobId');
             var itemTable = $("#tableBody");
             var itemList = `
-																												<option value="S00028" rate="300" description="">Booklice</option>
-																												<option value="P001" rate="" description="">Insert Trap - Decor 30</option>
-																												<option value="P002" rate="80" description="">Glue Board - 10 PCS</option>
-																												<option value="P003" rate="50">Insert Trap Rent</option>
-																												<option value="P003" rate="45">TRBS</option>
-																												<option value="P004" rate="700">Fly Trap</option>
-																												<option value="P005" rate="1200">Fly Trap (General Pest Control - 1Y12J)</option>
-																												<option value="P006" rate="50">Light Bulb</option>
-																												<option value="P007" rate="80">Gel Bait - Ant</option>
-																												<option value="P009" rate="80">Gel Bait - Cockroach</option>
-																												<option value="P010" rate="">Kleen Up - 5 Litre</option>
-																												<option value="P011" rate="">Keen Up - 25 Litre</option>
-																												<option value="P012" rate="">Keen Up Plus - 5 Litre</option>
-																												<option value="P013" rate="">Keen Up Plus - 25 Litre</option>
-																												<option value="S00001" rate="1800">[contract] Termite Baiting - 3Y</option>
-																												<option value="S00002" rate="3000">[contract] Termite Baiting - 5Y</option>
-																												<option value="S00003" rate="2500">[contract] Corrective Soil Treatment - 5Y</option>
-																												<option value="S00004" rate="600">Termite Spray</option>
-																												<option value="S00005" rate="700">Bedbugs</option>
-																												<option value="S00006" rate="1800">[contract] General Pest Control - 1Y12J</option>
-																												<option value="S00007" rate="1020">[contract] General Pest Control - 1Y6J</option>
-																												<option value="S00008" rate="760">[contract] General Pest Control - 1Y4J</option>
-																												<option value="S00009" rate="630">[contract] General Pest Control - 1Y3J</option>
-																												<option value="S00010" rate="250">General Pest Control</option>
-																												<option value="S00011" rate="3000">[contract] General Pest Control & Misting - 1Y12J</option>
-																												<option value="S00012" rate="1740">[contract] General Pest Control & Misting - 1Y6J</option>
-																												<option value="S00013" rate="1320">[contract] General Pest Control & Misting - 1Y4J</option>
-																												<option value="S00014" rate="1110">[contract] General Pest Control & Misting - 1Y3J</option>
-																												<option value="S00015" rate="400">General Pest Control & Misting</option>
-																												<option value="S00016" rate="300">Misting</option>
-																												<option value="S00017" rate="1500">[contract] Termite Baiting - 2Y</option>
-																												<option value="S00018" rate="240">Larvicide 1M 3 J</option>
-																												<option value="S00019" rate="750">Mosquito Misting 1M 3J</option>
-																												<option value="" rate="">Hours</option>
-																												<option value="" rate="">History</option> `;
+		<option value="S00028" rate="300" description="">Booklice</option>
+		<option value="P001" rate="" description="">Insert Trap - Decor 30</option>
+		<option value="P002" rate="80" description="">Glue Board - 10 PCS</option>
+		<option value="P003" rate="50">Insert Trap Rent</option>
+		<option value="P003" rate="45">TRBS</option>
+		<option value="P004" rate="700">Fly Trap</option>
+		<option value="P005" rate="1200">Fly Trap (General Pest Control - 1Y12J)</option>
+		<option value="P006" rate="50">Light Bulb</option>
+		<option value="P007" rate="80">Gel Bait - Ant</option>
+		<option value="P009" rate="80">Gel Bait - Cockroach</option>
+		<option value="P010" rate="">Kleen Up - 5 Litre</option>
+		<option value="P011" rate="">Keen Up - 25 Litre</option>
+		<option value="P012" rate="">Keen Up Plus - 5 Litre</option>
+		<option value="P013" rate="">Keen Up Plus - 25 Litre</option>
+		<option value="S00001" rate="1800">[contract] Termite Baiting - 3Y</option>
+		<option value="S00002" rate="3000">[contract] Termite Baiting - 5Y</option>
+		<option value="S00003" rate="2500">[contract] Corrective Soil Treatment - 5Y</option>
+		<option value="S00004" rate="600">Termite Spray</option>
+		<option value="S00005" rate="700">Bedbugs</option>
+		<option value="S00006" rate="1800">[contract] General Pest Control - 1Y12J</option>
+		<option value="S00007" rate="1020">[contract] General Pest Control - 1Y6J</option>
+		<option value="S00008" rate="760">[contract] General Pest Control - 1Y4J</option>
+		<option value="S00009" rate="630">[contract] General Pest Control - 1Y3J</option>
+		<option value="S00010" rate="250">General Pest Control</option>
+		<option value="S00011" rate="3000">[contract] General Pest Control & Misting - 1Y12J</option>
+		<option value="S00012" rate="1740">[contract] General Pest Control & Misting - 1Y6J</option>
+		<option value="S00013" rate="1320">[contract] General Pest Control & Misting - 1Y4J</option>
+		<option value="S00014" rate="1110">[contract] General Pest Control & Misting - 1Y3J</option>
+		<option value="S00015" rate="400">General Pest Control & Misting</option>
+		<option value="S00016" rate="300">Misting</option>
+		<option value="S00017" rate="1500">[contract] Termite Baiting - 2Y</option>
+		<option value="S00018" rate="240">Larvicide 1M 3 J</option>
+		<option value="S00019" rate="750">Mosquito Misting 1M 3J</option>
+		<option value="" rate="">Hours</option>
+		<option value="" rate="">History</option>
+  	    `;
             var tradeNames = ` 
-																												<option skuName="" skuNumber="" value="" activeIngredient=""></option>
-																												<option skuName="Cislin" skuNumber="M0001" value="Cislin" activeIngredient="Deltamethrin">Cislin</option>
-																												<option skuName="Deltacide" skuNumber="M0002" value="Deltacide" activeIngredient="Perperonyl butoxide">Deltacide</option>
-																												<option skuName="Icon cs" skuNumber="M0003" value="Icon cs" activeIngredient="Lambda-cyhalothrin">Icon cs</option>
-																												<option skuName="Maxxthor" skuNumber="M0004" value="Maxxthor" activeIngredient="Bifenthrin">Maxxthor</option>
-																												<option skuName="Seclira" skuNumber="M0005" value="Seclira" activeIngredient="Dinotefuran">Seclira</option>
-																												<option skuName="Temprid" skuNumber="M0006" value="Temprid" activeIngredient="Imidacloprid">Temprid</option>
-																												<option skuName="Tenopa" skuNumber="M0007" value="Tenopa" activeIngredient="Flufenoxuron">Tenopa</option>
-																												<option skuName="Lizard gel bait" skuNumber="M0008" value="Lizard gel bait" activeIngredient="Fipronic">Lizard gel bait</option>
-																												<option skuName="Optigard cockroach bait" skuNumber="M0009" value="Optigard cockroach bait" activeIngredient="Emamectin">Optigard cockroach bait</option> `;
+		<option skuName="" skuNumber="" value="" activeIngredient=""></option>
+		<option skuName="Cislin" skuNumber="M0001" value="Cislin" activeIngredient="Deltamethrin">Cislin</option>
+		<option skuName="Deltacide" skuNumber="M0002" value="Deltacide" activeIngredient="Perperonyl butoxide">Deltacide</option>
+		<option skuName="Icon cs" skuNumber="M0003" value="Icon cs" activeIngredient="Lambda-cyhalothrin">Icon cs</option>
+		<option skuName="Maxxthor" skuNumber="M0004" value="Maxxthor" activeIngredient="Bifenthrin">Maxxthor</option>
+		<option skuName="Seclira" skuNumber="M0005" value="Seclira" activeIngredient="Dinotefuran">Seclira</option>
+		<option skuName="Temprid" skuNumber="M0006" value="Temprid" activeIngredient="Imidacloprid">Temprid</option>
+		<option skuName="Tenopa" skuNumber="M0007" value="Tenopa" activeIngredient="Flufenoxuron">Tenopa</option>
+		<option skuName="Lizard gel bait" skuNumber="M0008" value="Lizard gel bait" activeIngredient="Fipronic">Lizard gel bait</option>
+		<option skuName="Optigard cockroach bait" skuNumber="M0009" value="Optigard cockroach bait" activeIngredient="Emamectin">Optigard cockroach bait</option>
+  	    `;
             $.each(items, function(key, value) {
               var newRow = ` 
-																												<tr class="itemRow defaultRow font-xxs">
-																													<td class="text-start itemInput itemInputRow" skunumber="${itemSKU[key]}">${this}</td>
-																													<td class="tradeName InputRow">
-																														<select class="form-control font-xxs ddlTradeName" style="width: fit-content;">${tradeNames}</select>
-																													</td>
-																													<td class="text-end font-s align-items-center activeIngredientInput"></td>
-																													<td contenteditable="true" class="text-end font-s align-items-center dilutionInput"></td>
-																													<td contenteditable="true" class="text-end font-s align-items-center quantityInput"></td>
-																													<td class="text-center actionRow">
-																														<button class="btn btn-danger btn-sm deleteRowBtn font-xxs">
-																															<i class="fas fa-times"></i>
-																														</button>
-																													</td>
-																												</tr> `;
+		<tr class="itemRow defaultRow font-xxs">
+			<td class="text-start itemInput itemInputRow" skunumber="${itemSKU[key]}">${this}</td>
+			<td class="tradeName InputRow">
+				<select class="form-control font-xxs ddlTradeName" style="width: fit-content;">${tradeNames}</select>
+			</td>
+			<td class="text-end font-s align-items-center activeIngredientInput"></td>
+			<td contenteditable="true" class="text-end font-s align-items-center dilutionInput"></td>
+			<td contenteditable="true" class="text-end font-s align-items-center quantityInput"></td>
+			<td class="text-center actionRow">
+				<button class="btn btn-danger btn-sm deleteRowBtn font-xxs">
+					<i class="fas fa-times"></i>
+				</button>
+			</td>
+		</tr> 
+  	    `;
               itemTable.append(newRow);
             });
             $("#picName").text(picName);
@@ -741,22 +744,23 @@
             formatAddress(billingBuilding, billingUnit, billingAddr1, billingAddr2, billingPostalCode, billingCity, billingState);
             $('#addRowBtn').click(function() {
               var newRow = ` 
-																												<tr class="itemRow">
-																													<td class="text-start font-s itemInputRow">
-																														<select class="form-control font-xs ddlItem" style="width: fit-content;">${itemList}</select>
-																													</td>
-																													<td class="tradeNameInputRow">
-																														<select class="form-control font-xs ddlTradeName" style="width: fit-content;">${tradeNames}</select>
-																													</td>
-																													<td class="text-end font-s align-items-center activeIngredientInput"></td>
-																													<td contenteditable="true" class="text-end font-s align-items-center dilutionInput"></td>
-																													<td contenteditable="true" class="text-end font-s align-items-center quantityInput"></td>
-																													<td class="text-center actionRow">
-																														<button class="btn btn-danger btn-sm deleteRowBtn font-xxs">
-																															<i class="fas fa-times"></i>
-																														</button>
-																													</td>
-																												</tr> `;
+		<tr class="itemRow">
+			<td class="text-start font-s itemInputRow">
+				<select class="form-control font-xs ddlItem" style="width: fit-content;">${itemList}</select>
+			</td>
+			<td class="tradeNameInputRow">
+				<select class="form-control font-xs ddlTradeName" style="width: fit-content;">${tradeNames}</select>
+			</td>
+			<td class="text-end font-s align-items-center activeIngredientInput"></td>
+			<td contenteditable="true" class="text-end font-s align-items-center dilutionInput"></td>
+			<td contenteditable="true" class="text-end font-s align-items-center quantityInput"></td>
+			<td class="text-center actionRow">
+				<button class="btn btn-danger btn-sm deleteRowBtn font-xxs">
+					<i class="fas fa-times"></i>
+				</button>
+			</td>
+		</tr> 
+	    `;
               itemTable.append(newRow);
               rebindItemRowEvents();
             });
@@ -971,7 +975,7 @@
                 rating = 0;
               }
               // var url = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjUwNTY0MDYzNDA0MzY1MjZjNTUzNDUxMzYi_pc';
-              var url = 'https://open-sg.larksuite.com/anycross/trigger/callback/YTM2MTc0Y2YzMGRjMmJiMTMwZjliYTE5MWYwNTNkYWQw';
+              var url = 'https://open-sg.larksuite.com/anycross/trigger/callback/YWI0Yjc3OTJkNjU1ZjAxMDc3NmNlOGQ4YjA5OGZlMTkw';
 		    
               var requestBody = {
                 services: services,
@@ -999,19 +1003,6 @@
 	      	},
 	      	body: JSON.stringify(requestBody)
 	      });
-  //             $.ajax({
-  //               url: url,
-  //               type: 'POST',
-		// mode: 'no-cors',
-  //               data: JSON.stringify(requestBody),
-  //               contentType: 'multipart/form-data',
-  //               success: function(response) {
-  //                 console.log('Success: ', response);
-  //               },
-  //               error: function(xhr, status, error) {
-  //                 console.error('Error: ', error);
-  //               }
-  //             });
               setTimeout(() => {
                 $(".circle").hide();
                 $(".message-text").text("Report Submitted Successfully");
