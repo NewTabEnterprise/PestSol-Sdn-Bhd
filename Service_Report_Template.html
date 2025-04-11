@@ -489,6 +489,8 @@
                   <label class="font-bold font-xxs">Service Address : </label>
                   <br>
                   <label class="font-xxs" id="billingAddress"></label>
+		  <br>
+		  <input type="text" id="serviceAddress"/>
                 </td>
               </tr>
             </tbody>
@@ -656,6 +658,7 @@
             var billingCity = param.billingCity;
             var billingState = param.billingState;
             var billingEmail = param.billingEmail;
+	    var serviceAddress = param.serviceAddress;
             var docNumber = param.docNumber;
             var recordId = param.recordId;
             var docDate = moment(parseInt(param.date)).format('DD-MM-YYYY'));
@@ -732,6 +735,7 @@
               itemTable.append(newRow);
             });
             $("#picName").text(picName);
+	    $("#serviceAddress").text(serviceAddress);
             $("#picContact").text(picContact);
             $("#picEmail").text(picEmail);
             $("#companyName").text(companyName);
@@ -991,6 +995,7 @@
               var signBy = $("#signBy").text();
               var startDateTime = convertTimeToTimestamp(startTime);
               var endDateTime = convertTimeToTimestamp(endTime);
+	      var serviceAddress = $("#serviceAddress").text();
               $(".itemRow").each(function() {
                 services.push({
                   item: $(this).find(".itemInput").attr('skunumber'),
@@ -1013,6 +1018,7 @@
                 endTime: endDateTime,
                 premiseType: premiseType,
                 targetPest: targetPest,
+		serviceAddress: serviceAddress,
                 technicianRemark: technicianRemark,
                 customerFeedback: customerFeedback,
                 rating: rating,
