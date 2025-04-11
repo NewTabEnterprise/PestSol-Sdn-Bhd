@@ -638,28 +638,30 @@
       $(document).ready(function() {
             const nowDate = moment().format('DD-MM-YYYY');
             $('#signDate').text(nowDate);
-            var picName = getUrlParameter('picName');
-            var picContact = getUrlParameter('picContact');
-            var picEmail = getUrlParameter('picEmail');
+	    var param = getUrlParameter();
+	      
+            var picName = param.picName;
+            var picContact = param.picContact;
+            var picEmail = param.picEmail;
             var companyLogoLink = "https://raw.githubusercontent.com/NewTabEnterprise/PestSol-Sdn-Bhd/main/src/img/logo.png";
             var companySignatureLink = "https://raw.githubusercontent.com/NewTabEnterprise/PestSol-Sdn-Bhd/main/src/img/reno_sign.png";
-            var companyName = getUrlParameter('companyName');
-            var companyContact = getUrlParameter('companyContact');
-            var companyEmail = getUrlParameter('companyEmail');
-            var billingBuilding = getUrlParameter('billingBuilding');
-            var billingUnit = getUrlParameter('billingUnit');
-            var billingAddr1 = getUrlParameter('billingAddr1');
-            var billingAddr2 = getUrlParameter('billingAddr2');
-            var billingPostalCode = getUrlParameter('billingPostalCode');
-            var billingCity = getUrlParameter('billingCity');
-            var billingState = getUrlParameter('billingState');
-            var billingEmail = getUrlParameter('billingEmail');
-            var docNumber = getUrlParameter('docNumber');
-            var recordId = getUrlParameter('recordId');
-            var docDate = moment(getUrlParameter('date')).format('DD-MM-YYYY');
-            var items = getUrlParameter('items')?.split(',') ?? "";
-            var itemSKU = getUrlParameter('itemsSKU')?.split(',') ?? "";
-            var jobId = getUrlParameter('jobId');
+            var companyName = param.companyName;
+            var companyContact = param.companyContact;
+            var companyEmail = param.companyEmail;
+            var billingBuilding = param.billingBuilding;
+            var billingUnit = param.billingUnit;
+            var billingAddr1 = param.billingAddr1;
+            var billingAddr2 = param.billingAddr2;
+            var billingPostalCode = param.billingPostalCode;
+            var billingCity = param.billingCity;
+            var billingState = param.billingState;
+            var billingEmail = param.billingEmail;
+            var docNumber = param.docNumber;
+            var recordId = param.recordId;
+            var docDate = moment(parseInt(param.date)).format('DD-MM-YYYY'));
+            var items = param.items?.split(',') ?? "";
+            var itemSKU = param.itemsSKU?.split(',') ?? "";
+            var jobId = param.jobId;
             var itemTable = $("#tableBody");
             var itemList = `
 		<option value="S00028" rate="300" description="">Booklice</option>
@@ -807,10 +809,38 @@
               $(".ddlTradeName").trigger("change");
             }
 
-            function getUrlParameter(paramName) {
-              var searchParams = new URLSearchParams(window.location.search);
-              return searchParams.get(paramName);
-            }
+            function getUrlParameters() {
+	        var query = window.location.search.substring(1);
+	        var result = {};
+	        var params = query.split('&');
+	        var regex = /([^=]+)=(.*)/;
+	
+	        for (var i = 0; i < params.length; i++) {
+	          var match = params[i].match(regex);
+	          if (match) {
+	            var key = decodeURIComponent(match[1]);
+	            var value = decodeURIComponent(match[2] || '');
+	
+	            // Check if the next parameter doesn't have an '=' sign
+	            while (i + 1 < params.length && !params[i + 1].includes('=')) {
+	              i++;
+	              value += '&' + decodeURIComponent(params[i]);
+	            }
+	
+	            if (result[key] !== undefined) {
+	              if (Array.isArray(result[key])) {
+	                result[key].push(value);
+	              } else {
+	                result[key] = [result[key], value];
+	              }
+	            } else {
+	              result[key] = value;
+	            }
+	          }
+	        }
+	
+	        return result;
+	      }
 
             function imageToBase64(url) {
               return fetch(url).then(response => {
