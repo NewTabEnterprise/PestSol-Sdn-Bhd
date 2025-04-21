@@ -663,7 +663,7 @@
 	    var serviceAddress = param.serviceAddress;
             var docNumber = param.docNumber;
             var recordId = param.recordId;
-            var docDate = moment(parseInt(param.date)).format('DD-MM-YYYY');
+            var docDate = param.date;
             var items = param.items?.split(',') ?? "";
             var itemSKU = param.itemsSKU?.split(',') ?? "";
             var jobId = param.jobId;
